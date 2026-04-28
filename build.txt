@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 > temp-app@0.1.0 build
 > next build
@@ -5,3 +6,12 @@
 Γû▓ Next.js 16.2.3 (Turbopack)
 
   Creating an optimized production build ...
+=======
+﻿
+> temp-app@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.3 (Turbopack)
+
+  Creating an optimized production build ...
+>>>>>>> 6a4dee3c419ef327722b51e1752ee5d8dda58d92
