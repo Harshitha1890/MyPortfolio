@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+  --color-primary-950: #2e1065;
+
+  --animate-blob: blob 7s infinite;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+}
+
+:root {
+  --background: #fffdfd;
+  --foreground: #333333;
+  --card: rgba(255, 255, 255, 0.9);
+  --card-foreground: #333333;
+  --border: #ede9fe;
+  --primary: #7c3aed;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #fce7f3;
+  --card: rgba(30, 30, 30, 0.8);
+  --card-foreground: #fce7f3;
+  --border: #333333;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Soft grid background for adorable look */
+    background-image: radial-gradient(#ddd6fe 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: var(--card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+  }
+  
+  .panel-soft {
+    background-color: #ffffff;
+    border: 2px solid #ede9fe;
+    border-radius: 1.5rem;
+    box-shadow: 
+      0 10px 25px -5px rgba(124, 58, 237, 0.1), 
+      0 8px 10px -6px rgba(124, 58, 237, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .panel-soft:hover {
+    border-color: #c4b5fd;
+    box-shadow: 
+      0 20px 35px -5px rgba(124, 58, 237, 0.15),
+      0 15px 15px -10px rgba(124, 58, 237, 0.1);
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .btn-soft {
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    border: none;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.39);
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-soft:hover {
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.23);
+    transform: translateY(-2px);
+  }
+
+  .btn-soft:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(124, 58, 237, 0.2);
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #a78bfa, #7c3aed);
+  }
+}
