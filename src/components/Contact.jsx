@@ -8,51 +8,34 @@ import { Button } from "../bits/Button";
 import { IoMailOutline, IoLocationOutline, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
 
 export function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("idle");
-  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState("idle"); // "idle", "submitting", "success", "error"
 
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("submitting");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validate()) {
-      setStatus("submitting");
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: "a063b5b2-2642-44d8-8db2-899c5dddc81f",
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-          }),
-        });
-        const result = await response.json();
-        if (result.success) {
-          setStatus("success");
-          setFormData({ name: "", email: "", message: "" });
-          setTimeout(() => setStatus("idle"), 3000);
-        } else {
-          console.error("Form error:", result);
-          setStatus("error");
-        }
-      } catch (error) {
-        console.error("Fetch error:", error);
+    const formData = new FormData(event.target);
+    formData.append("access_key", "e0554879-8993-43eb-8e9f-fded127724f9");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        event.target.reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        console.error("Form error:", data);
         setStatus("error");
       }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setStatus("error");
     }
   };
 
@@ -118,38 +101,35 @@ export function Contact() {
                   <input
                     type="text"
                     id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${errors.name ? 'border-red-500 focus:border-red-600' : 'border-gray-300 focus:border-primary-600'}`}
+                    name="name"
+                    required
+                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer border-gray-300 focus:border-primary-600"
                     placeholder=" "
                   />
-                  <label htmlFor="name" className={`peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${errors.name ? 'text-red-500' : 'text-gray-700 peer-focus:text-primary-600'}`}>Name</label>
-                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                  <label htmlFor="name" className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-gray-700 peer-focus:text-primary-600">Name</label>
                 </div>
                 <div className="relative z-0 w-full group">
                   <input
                     type="email"
                     id="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${errors.email ? 'border-red-500 focus:border-red-600' : 'border-gray-300 focus:border-primary-600'}`}
+                    name="email"
+                    required
+                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer border-gray-300 focus:border-primary-600"
                     placeholder=" "
                   />
-                  <label htmlFor="email" className={`peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${errors.email ? 'text-red-500' : 'text-gray-700 peer-focus:text-primary-600'}`}>Email address</label>
-                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                  <label htmlFor="email" className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-gray-700 peer-focus:text-primary-600">Email address</label>
                 </div>
               </div>
               <div className="relative z-0 w-full group">
                 <textarea
                   id="message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  name="message"
+                  required
                   rows={4}
-                  className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${errors.message ? 'border-red-500 focus:border-red-600' : 'border-gray-300 focus:border-primary-600'}`}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer border-gray-300 focus:border-primary-600"
                   placeholder=" "
                 />
-                <label htmlFor="message" className={`peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${errors.message ? 'text-red-500' : 'text-gray-700 peer-focus:text-primary-600'}`}>Message</label>
-                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+                <label htmlFor="message" className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-gray-700 peer-focus:text-primary-600">Message</label>
               </div>
 
               <Button type="submit" disabled={status === "submitting"} className="min-w-[150px]">
