@@ -31,7 +31,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-40 bg-white/80 backdrop-blur-md border-b border-primary-100 transition-all duration-300">
+    <nav className="fixed top-0 inset-x-0 z-40 nav-glass border-b border-primary-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Logo */}
