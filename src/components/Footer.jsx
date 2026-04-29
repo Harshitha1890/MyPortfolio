@@ -14,9 +14,9 @@ export function Footer() {
           © {new Date().getFullYear()} Nunemunthala Harshitha. All rights reserved.
         </p>
         <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">GitHub</a>
-          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">LinkedIn</a>
-          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">Twitter</a>
+          <a href="https://github.com/Harshitha1890" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/harshitha-nunemunthala" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors">LinkedIn</a>
+          <a href="https://twitter.com/Harshitha" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors">Twitter</a>
         </div>
       </div>
 

@@ -25,12 +25,19 @@ const skillsData = [
     ]
   },
   {
-    category: "Tools, Core & Design",
+    category: "Tools",
+    skills: [
+      { name: "Git / GitHub", progress: 85, icon: <FaGitAlt className="text-orange-600" /> },
+      { name: "Postman", progress: 75, icon: <span className="text-orange-500 font-bold">P</span> },
+      { name: "VS Code", progress: 90, icon: <span className="text-blue-500 font-bold">VS</span> },
+    ]
+  },
+  {
+    category: "Core & Design",
     skills: [
       { name: "Python", progress: 85, icon: <span className="text-blue-500 font-bold">Py</span> },
       { name: "Data Structures & Algos", progress: 80, icon: <span className="text-purple-500 font-bold">{`{}`}</span> },
-      { name: "Graphic Designer", progress: 30, icon: <FaFigma className="text-pink-500" /> },
-      { name: "Git / GitHub", progress: 85, icon: <FaGitAlt className="text-orange-600" /> },
+      { name: "Graphic Designer (Figma)", progress: 40, icon: <FaFigma className="text-pink-500" /> },
     ]
   }
 ];
@@ -44,7 +51,7 @@ export function Skills() {
           <div className="w-20 h-1 bg-primary-400 mx-auto rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {skillsData.map((group, idx) => (
             <Card key={idx} hover={false} className="p-8 border-primary-100 dark:border-primary-900/30">
               <h3 className="text-xl font-medium mb-6 text-gray-800 dark:text-gray-100">{group.category}</h3>

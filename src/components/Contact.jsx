@@ -80,14 +80,20 @@ export function Contact() {
             <div className="pt-4 border-t border-primary-100">
               <h4 className="font-bold mb-4">Social Profiles</h4>
               <div className="flex gap-4">
-                {[IoLogoGithub, IoLogoLinkedin, IoLogoTwitter].map((Icon, idx) => (
+                {[
+                  { Icon: IoLogoGithub, link: "https://github.com/Harshitha1890" },
+                  { Icon: IoLogoLinkedin, link: "https://www.linkedin.com/in/harshitha-nunemunthala" },
+                  { Icon: IoLogoTwitter, link: "https://twitter.com/Harshitha" }
+                ].map((social, idx) => (
                   <motion.a
                     key={idx}
-                    href="#"
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     className="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center text-primary-400 hover:text-primary-600 hover:bg-primary-100 hover:shadow-sm transition-all"
                   >
-                    <Icon size={20} />
+                    <social.Icon size={20} />
                   </motion.a>
                 ))}
               </div>
