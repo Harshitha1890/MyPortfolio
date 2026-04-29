@@ -33,7 +33,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 inset-x-0 z-40 nav-glass border-b border-primary-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
-        
+
         {/* Logo */}
         <div className="flex-shrink-0 cursor-pointer" onClick={() => handleScroll("home")}>
           <span className="text-2xl font-bold tracking-tighter text-gradient">
@@ -48,11 +48,10 @@ export function Navbar() {
               <li key={link.id}>
                 <button
                   onClick={() => handleScroll(link.id)}
-                  className={`text-sm font-medium transition-colors hover:text-primary-500 ${
-                    activeId === link.id
+                  className={`text-sm font-medium transition-colors hover:text-primary-500 ${activeId === link.id
                       ? "text-primary-500 font-semibold"
                       : "text-gray-800 hover:text-primary-600"
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </button>
@@ -88,11 +87,10 @@ export function Navbar() {
                 <li key={link.id}>
                   <button
                     onClick={() => handleScroll(link.id)}
-                    className={`block w-full text-left text-lg font-medium transition-colors ${
-                      activeId === link.id
+                    className={`block w-full text-left text-lg font-medium transition-colors ${activeId === link.id
                         ? "text-primary-500"
                         : "text-gray-800 hover:text-primary-600"
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </button>
