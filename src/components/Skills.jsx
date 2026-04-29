@@ -54,14 +54,18 @@ export function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {skillsData.map((group, idx) => (
             <Card key={idx} hover={false} className="p-8 border-primary-100 dark:border-primary-900/30">
-              <h3 className="text-xl font-medium mb-6 text-gray-800 dark:text-gray-100">{group.category}</h3>
+              <div className="mb-6 border-b border-primary-50 pb-2">
+                <h3 className="text-2xl font-bold text-primary-800 dark:text-primary-400">
+                  {group.category}
+                </h3>
+              </div>
               <div className="space-y-6">
                 {group.skills.map((skill, sIdx) => (
                   <div key={sIdx}>
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-2">
                         {skill.icon}
-                        <span className="font-medium">{skill.name}</span>
+                        <span className="font-semibold text-gray-800">{skill.name}</span>
                       </div>
                       <span className="text-sm text-gray-700">{skill.progress}%</span>
                     </div>
