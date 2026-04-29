@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useScrollSpy } from "../hooks/useScrollSpy";
-import { useTheme } from "../app/providers";
+import { useTheme } from "../../app/providers";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMenu, IoClose, IoMoon, IoSunny } from "react-icons/io5";
 
