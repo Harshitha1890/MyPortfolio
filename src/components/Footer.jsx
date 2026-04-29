@@ -11,12 +11,13 @@ export function Footer() {
     <footer className="bg-transparent border-t border-primary-100 py-8 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
         <p className="text-gray-700 text-sm font-medium">
-          © {new Date().getFullYear()} Nunemunthala Harshitha. All rights reserved.
+          © {new Date().getFullYear()} Nunemunthala Harshitha — Frontend Developer.
+          Built with passion and precision.
         </p>
         <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="https://github.com/Harshitha1890" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors">GitHub</a>
-          <a href="https://www.linkedin.com/in/harshitha-nunemunthala" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors">LinkedIn</a>
-          <a href="https://twitter.com/Harshitha" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors">Twitter</a>
+          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">GitHub</a>
+          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">LinkedIn</a>
+          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">Twitter</a>
         </div>
       </div>
 

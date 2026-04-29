@@ -37,7 +37,7 @@ export function Navbar() {
         {/* Logo */}
         <div className="flex-shrink-0 cursor-pointer" onClick={() => handleScroll("home")}>
           <span className="text-2xl font-bold tracking-tighter text-gradient">
-            Nunemunthala Harshitha.
+            Nunemunthala Harshitha
           </span>
         </div>
 
