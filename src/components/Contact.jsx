@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../bits/SectionWrapper";
 import { Card } from "../bits/Card";
 import { Button } from "../bits/Button";
-import { IoMailOutline, IoLocationOutline, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
+import { IoMailOutline, IoLocationOutline, IoCallOutline, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
 
 export function Contact() {
   const [status, setStatus] = useState("idle"); // "idle", "submitting", "success", "error"
@@ -64,6 +64,15 @@ export function Contact() {
                 <div>
                   <h4 className="text-sm text-gray-700 font-medium">Email Me</h4>
                   <p className="font-medium">harshithanunemunthala@gmail.com</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
+                  <IoCallOutline size={24} />
+                </div>
+                <div>
+                  <h4 className="text-sm text-gray-700 font-medium">Call Me</h4>
+                  <p className="font-medium">+91 8977423325</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
