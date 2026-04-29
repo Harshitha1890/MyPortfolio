@@ -33,12 +33,9 @@ export function Hero() {
           className="mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-[0_10px_25px_rgba(124,58,237,0.15)] overflow-hidden"
         >
           <img 
-            src="/profile.jpg" 
+            src="https://res.cloudinary.com/dprr6migk/image/upload/v1777464767/WhatsApp_Image_2026-04-28_at_10.19.31_AM_1_atl1qr.jpg" 
             alt="Nunemunthala Harshitha" 
             className="w-full h-full object-cover" 
-            onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256&auto=format&fit=crop";
-            }}
           />
         </motion.div>
         <motion.div
