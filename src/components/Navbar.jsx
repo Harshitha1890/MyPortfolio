@@ -31,7 +31,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-40 nav-glass border-b border-primary-100 transition-all duration-300">
+    <nav className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50 dark:bg-[#1E1B2E]/95 dark:border-primary-900/30 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
@@ -48,9 +48,9 @@ export function Navbar() {
               <li key={link.id}>
                 <button
                   onClick={() => handleScroll(link.id)}
-                  className={`text-sm font-medium transition-colors hover:text-primary-500 ${activeId === link.id
+                  className={`text-sm font-medium transition-colors ${activeId === link.id
                       ? "text-primary-500 font-semibold"
-                      : "text-gray-800 hover:text-primary-600"
+                      : "text-gray-800 dark:text-white/70 hover:text-primary-500 dark:hover:text-primary-400"
                     }`}
                 >
                   {link.name}

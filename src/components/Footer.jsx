@@ -1,7 +1,7 @@
 "use client";
 
 import { useScrollTop } from "../hooks/useScrollTop";
-import { IoArrowUp } from "react-icons/io5";
+import { IoArrowUp, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Footer() {
@@ -14,10 +14,19 @@ export function Footer() {
           © {new Date().getFullYear()} Nunemunthala Harshitha — Frontend Developer.
           Built with passion and precision.
         </p>
-        <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">GitHub</a>
-          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">LinkedIn</a>
-          <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors">Twitter</a>
+        <div className="flex gap-6 mt-6 md:mt-0">
+          <a href="https://github.com/Harshitha1890" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+            <IoLogoGithub size={20} />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/harshitha-nunemunthala" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+            <IoLogoLinkedin size={20} />
+            <span className="hidden sm:inline">LinkedIn</span>
+          </a>
+          <a href="https://twitter.com/Harshitha" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+            <IoLogoTwitter size={20} />
+            <span className="hidden sm:inline">Twitter</span>
+          </a>
         </div>
       </div>
 
