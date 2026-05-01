@@ -20,8 +20,8 @@ const skillsData = [
     category: "Backend & Database",
     skills: [
       { name: "Node.js / Express.js", progress: 80, icon: <FaNodeJs className="text-green-500" /> },
-      { name: "MongoDB", progress: 75, icon: <SiMongodb className="text-green-600" /> },
-      { name: "SQL", progress: 70, icon: <span className="text-blue-800 font-bold">SQL</span> },
+      { name: "MongoDB", progress: 85, icon: <SiMongodb className="text-green-600" /> },
+      { name: "SQL", progress: 85, icon: <span className="text-blue-800 font-bold">SQL</span> },
     ]
   },
   {
@@ -37,7 +37,7 @@ const skillsData = [
     skills: [
       { name: "Python", progress: 85, icon: <span className="text-blue-500 font-bold">Py</span> },
       { name: "Data Structures & Algos", progress: 80, icon: <span className="text-purple-500 font-bold">{`{}`}</span> },
-      { name: "Graphic Designer (Figma)", progress: 40, icon: <FaFigma className="text-pink-500" /> },
+      { name: "Graphic Design", progress: 85, icon: <FaFigma className="text-pink-500" /> },
     ]
   }
 ];
